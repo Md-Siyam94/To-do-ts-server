@@ -2,20 +2,19 @@ import express from "express"
 import type { Application,  Request,  Response } from "express"
 const app: Application = express()
 import fs from "fs"
+import todosRouter from "./Routers/todos.router.js"
 
 app.use(express.json())
+
+
+
+app.use("/todos", todosRouter)
+
 
 app.get("/", (req: Request, res:Response)=>{
    res.json("I learning express with typescript")
 })
-app.get("/todos/:title/:body", (req: Request, res:Response)=>{
-   console.log("from query", req.query)
-   console.log("from params", req.params)
-   const data = fs.readFileSync("./db/todo.json", {"encoding": "utf-8"})
-   res.json(data)
-})
-app.post("/todos/create-todos", (req: Request, res:Response)=>{
-   res.json("create to do")
-})
+
+
 
 export default app
