@@ -14,6 +14,26 @@ todosRouter.get("/", (req: Request, res:Response)=>{
 })
 
 todosRouter.post("/create-todos", (req: Request, res:Response)=>{
+   const {title, description} = req.body
+   console.log("from body", title, description)
+   res.json("create todo")
+})
+
+todosRouter.put("/:id", (req: Request, res:Response)=>{
+   const {title, description} = req.body
+   console.log("from body", title, description)
+   res.json("update todo")
+})
+
+todosRouter.patch("/:id", (req: Request, res:Response)=>{
+   const {title, description} = req.body
+   console.log("from body", title, description)
+   res.json("create todo")
+})
+
+todosRouter.delete("/:id", (req: Request, res:Response)=>{
+   const {title, description} = req.body
+   console.log("from body", title, description)
    res.json("create todo")
 })
 
